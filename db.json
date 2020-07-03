@@ -1,0 +1,22 @@
+{
+  "drivers": [
+    {
+      "id": "1",
+      "name": "Fernando da Silva Resende",
+      "telephone": "32516544515",
+      "dateOfBirth": "19/02/1963",
+      "cnh": "46545656165465456",
+      "typeCNH": "B",
+      "cpf": "5465456654564"
+    },
+    {
+      "id": "2",
+      "name": "Fernando da Silva Resende Xavier Reinaldo",
+      "telephone": "32516544515",
+      "dateOfBirth": "19/02/1963",
+      "cnh": "46545656165465456",
+      "typeCNH": "B",
+      "cpf": "5465456654564"
+    }
+  ]
+}

@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'antd/dist/antd.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Suspense fallback={null}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Suspense>,
   document.getElementById('root')
 );
 
