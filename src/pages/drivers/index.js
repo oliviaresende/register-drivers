@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Descriptions, List, Typography, Spin } from 'antd';
+import { Link } from 'react-router-dom';
 
 import './drivers.scss';
 
 const { Title } = Typography;
 
 const Drivers = () => {
-  const [drivers, setDrivers] = useState([]);
+  const [drivers, setDrivers] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch('http://localhost:3001/drivers')
@@ -43,7 +44,7 @@ const Drivers = () => {
                     <Descriptions.Item label="CNH">{item.cnh}</Descriptions.Item>
                     <Descriptions.Item label="Tipo CNH">{item.typeCNH}</Descriptions.Item>
                     <Descriptions.Item label="CPF">{item.cpf}</Descriptions.Item>
-                    <Descriptions.Item>Teste</Descriptions.Item>
+                    <Descriptions.Item><Link to={`/form/${item.id}`}>Editar</Link></Descriptions.Item>
                   </Descriptions>
                 </List.Item>
               )}
