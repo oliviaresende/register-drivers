@@ -11,6 +11,7 @@ const Routes = props => (
     <Switch>
       <Route exact path="/" component={routerProps => <Drivers {...routerProps} />} />
       <Route exact path="/form" component={routerProps => <Form {...routerProps} />} />
+      <Route exact path="/form/:id" component={routerProps => <Form {...routerProps} />} />
     </Switch>
   </Suspense>
 )
