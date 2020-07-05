@@ -7,7 +7,8 @@
       "cnh": "70444266740",
       "typeCNH": "A",
       "cpf": "079.730.816-40",
-      "id": "99329"
+      "id": "99329",
+      "active": "false"
     },
     {
       "id": "77584",
@@ -17,7 +18,7 @@
       "cnh": "15456465",
       "typeCNH": "D",
       "cpf": "079.730.816-40",
-      "active": true
+      "active": "false"
     },
     {
       "id": "11347",
@@ -27,7 +28,7 @@
       "cnh": "15456465",
       "typeCNH": "A",
       "cpf": "079.730.816-40",
-      "active": true
+      "active": "true"
     },
     {
       "id": "79337",
@@ -37,7 +38,7 @@
       "cnh": "15456465",
       "typeCNH": "C",
       "cpf": "079.730.816-40",
-      "active": true
+      "active": "true"
     },
     {
       "id": "78283",
@@ -47,7 +48,7 @@
       "cnh": "15456465",
       "typeCNH": "D",
       "cpf": "88888888888",
-      "active": true
+      "active": "true"
     },
     {
       "id": "56302",
@@ -57,7 +58,7 @@
       "cnh": "70444266740",
       "typeCNH": "D",
       "cpf": "888.888.888-88",
-      "active": true
+      "active": "true"
     }
   ]
 }
