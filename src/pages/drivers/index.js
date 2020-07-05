@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Descriptions, List, Typography, Spin } from 'antd';
+import { Descriptions, List, Typography, Spin, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 import './drivers.scss';
@@ -25,31 +25,32 @@ const Drivers = () => {
         )
           :
           (
-
-            <List
-              itemLayout="vertical"
-              dataSource={drivers}
-              split="false"
-              renderItem={item => (
-                <List.Item
-                  key={item.key}
-                >
-                  <Descriptions
-                    column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
-                    bordered
+            <>
+              <Button type="primary" htmlType="button"><Link to="/form">Cadastrar</Link></Button>
+              <List
+                itemLayout="vertical"
+                dataSource={drivers}
+                split="false"
+                renderItem={item => (
+                  <List.Item
+                    key={item.key}
                   >
-                    <Descriptions.Item label="Nome">{item.name}</Descriptions.Item>
-                    <Descriptions.Item label="Telefone">{item.telephone}</Descriptions.Item>
-                    <Descriptions.Item label="Data de Nascimento">{item.dateOfBirth}</Descriptions.Item>
-                    <Descriptions.Item label="CNH">{item.cnh}</Descriptions.Item>
-                    <Descriptions.Item label="Tipo CNH">{item.typeCNH}</Descriptions.Item>
-                    <Descriptions.Item label="CPF">{item.cpf}</Descriptions.Item>
-                    <Descriptions.Item><Link to={`/form/${item.id}`}>Editar</Link></Descriptions.Item>
-                  </Descriptions>
-                </List.Item>
-              )}
-            />
-
+                    <Descriptions
+                      column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+                      bordered
+                    >
+                      <Descriptions.Item label="Nome">{item.name}</Descriptions.Item>
+                      <Descriptions.Item label="Telefone">{item.telephone}</Descriptions.Item>
+                      <Descriptions.Item label="Data de Nascimento">{item.dateOfBirth}</Descriptions.Item>
+                      <Descriptions.Item label="CNH">{item.cnh}</Descriptions.Item>
+                      <Descriptions.Item label="Tipo CNH">{item.typeCNH}</Descriptions.Item>
+                      <Descriptions.Item label="CPF">{item.cpf}</Descriptions.Item>
+                      <Descriptions.Item><Link to={`/form/${item.id}`}>Editar</Link></Descriptions.Item>
+                    </Descriptions>
+                  </List.Item>
+                )}
+              />
+            </>
           )
       }
     </>
