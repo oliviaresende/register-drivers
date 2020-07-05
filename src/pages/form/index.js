@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Typography, Select, Button, Spin } from 'antd';
+import { Form, Input, Typography, Select, Button, Spin, notification } from 'antd';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { cpfMask, telMask } from '../../utils/formatter';
@@ -26,13 +26,15 @@ const FormRegister = () => {
 
   useEffect(() => {
     if (id) {
-      return fetch(`http://localhost:3001/drivers/${id}`)
+      fetch(`http://localhost:3001/drivers/${id}`)
         .then(res => res.json())
         .then(res => setDriver(res))
         .catch(err => console.error(err, 'Nenhum motorista encontrado'))
         .finally(() => setLoading(false))
     }
-    setLoading(false)
+    else {
+      setLoading(false)
+    }
   }, [id])
 
   const post = values => (
@@ -69,11 +71,39 @@ const FormRegister = () => {
 
   const onFinish = values => {
     if (id) {
-      put(values);
-      history.push("/");
+      put(values)
+        .then(() => {
+          notification['success']({
+            message: 'Sucesso!',
+            description: 'Dados alterados com sucesso!',
+            duration: 3
+          })
+          setTimeout(() => {
+            history.push("/");
+          }, 3000)
+        })
+        .catch(() => notification['error']({
+          message: 'Ops! Algo deu errado!',
+          description: 'Não foi possível alterar os dados!',
+          duration: 3
+        }))
+
     } else {
-      post(values).then(() => console.log("Cadastrado com sucesso!"))
-      form.resetFields();
+      post(values)
+        .then(() => {
+          notification['success']({
+            message: 'Sucesso!',
+            description: 'Motorista cadastrado com sucesso!',
+            duration: 3
+          })
+          form.resetFields();
+        })
+        .catch(() => notification['error']({
+          message: 'Ops! Algo deu errado!',
+          description: 'Não foi possível cadastrar o motorista!',
+          duration: 3
+        }))
+
     }
   }
   return (
@@ -166,8 +196,8 @@ const FormRegister = () => {
             </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit">
-                Cadastrar
-          </Button>
+                {id ? 'Editar' : 'Cadastrar'}
+              </Button>
             </Form.Item>
           </Form>)
       }

@@ -2,8 +2,8 @@
   "drivers": [
     {
       "name": "Olívia Silva Resende",
-      "telephone": "(31) 99536-9159",
-      "dateOfBirth": "2020-07-02",
+      "telephone": "(31)99536-9159",
+      "dateOfBirth": "2001-07-02",
       "cnh": "70444266740",
       "typeCNH": "A",
       "cpf": "079.730.816-40",
@@ -47,6 +47,16 @@
       "cnh": "15456465",
       "typeCNH": "D",
       "cpf": "88888888888",
+      "active": true
+    },
+    {
+      "id": "56302",
+      "name": "Olívia Silva Resende",
+      "telephone": "(31)99536-9159",
+      "dateOfBirth": "2001-12-05",
+      "cnh": "70444266740",
+      "typeCNH": "D",
+      "cpf": "888.888.888-88",
       "active": true
     }
   ]
