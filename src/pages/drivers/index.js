@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Descriptions, List, Typography, Spin, Button } from 'antd';
+import { Descriptions, List, Typography, Spin, Button, Select } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { date } from '../../utils/formatter';
@@ -7,10 +7,12 @@ import { date } from '../../utils/formatter';
 import './drivers.scss';
 
 const { Title } = Typography;
+const { Option } = Select;
 
 const Drivers = () => {
   const [drivers, setDrivers] = useState({});
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch('http://localhost:3001/drivers')
       .then(res => res.json())
@@ -18,6 +20,22 @@ const Drivers = () => {
       .catch(err => console.error(err, 'Nenhum motorista encontrado'))
       .finally(() => setLoading(false))
   }, [])
+
+  const onSelect = (value, driver) => {
+    fetch(`http://localhost:3001/drivers/${driver.id}`, {
+      method: 'put',
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({
+        ...driver,
+        "active": value
+      })
+    })
+  }
+
   return (
     <>
       <Title>Motoristas</Title>
@@ -47,6 +65,12 @@ const Drivers = () => {
                       <Descriptions.Item label="CNH">{item.cnh}</Descriptions.Item>
                       <Descriptions.Item label="Tipo CNH">{item.typeCNH}</Descriptions.Item>
                       <Descriptions.Item label="CPF">{item.cpf}</Descriptions.Item>
+                      <Descriptions.Item label="Situação">
+                        <Select defaultValue={item.active} onSelect={(value) => onSelect(value, item)}>
+                          <Option value="true">Ativo</Option>
+                          <Option value="false">Inativo</Option>
+                        </Select>
+                      </Descriptions.Item>
                       <Descriptions.Item><Link to={`/form/${item.id}`}>Editar</Link></Descriptions.Item>
                     </Descriptions>
                   </List.Item>
