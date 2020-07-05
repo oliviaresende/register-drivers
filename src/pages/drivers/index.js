@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Descriptions, List, Typography, Spin, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
+import { date } from '../../utils/formatter';
+
 import './drivers.scss';
 
 const { Title } = Typography;
@@ -41,7 +43,7 @@ const Drivers = () => {
                     >
                       <Descriptions.Item label="Nome">{item.name}</Descriptions.Item>
                       <Descriptions.Item label="Telefone">{item.telephone}</Descriptions.Item>
-                      <Descriptions.Item label="Data de Nascimento">{item.dateOfBirth}</Descriptions.Item>
+                      <Descriptions.Item label="Data de Nascimento">{date(item.dateOfBirth)}</Descriptions.Item>
                       <Descriptions.Item label="CNH">{item.cnh}</Descriptions.Item>
                       <Descriptions.Item label="Tipo CNH">{item.typeCNH}</Descriptions.Item>
                       <Descriptions.Item label="CPF">{item.cpf}</Descriptions.Item>
