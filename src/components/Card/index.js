@@ -31,7 +31,7 @@ const CardDriver = ({ driver, onSelect }) => {
   ]
   return (
     <Card>
-      <div className="header-container">
+      <div className="title-container">
         <p className="title" >{driver.name}</p>
         <Link to={`/form/${driver.id}`} className="edit-container">
           <div className="edit-label">Editar</div>
