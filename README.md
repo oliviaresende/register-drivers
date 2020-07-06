@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto:  Register Drivers
 
-## Available Scripts
+Plataforma para cadastrar motoristas de todo o Brasil.
 
-In the project directory, you can run:
+****
+## *Sobre o projeto* ⭐️
+### *Principais funcionalidades:*
 
-### `npm start`
+- Listar motoristas já cadastrados com os dados dos motoristas, nessa listagem podemos editar um motorista, cadastrar um novo motorista e inativar um motorista.
+- Dados do cadastro: Nome, telefone, data de nascimento, CNH, tipo de CNH e CPF.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### *Tecnologias usadas:*
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [React](https://pt-br.reactjs.org/docs/getting-started.html);
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start);
+- [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html);
+- [Ant Design](https://ant.design/docs/react/introduce);
+- [Sass](https://sass-lang.com/documentation);
+- [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react);
+- [Json Server](https://github.com/typicode/json-server);
+- [Jest](https://jestjs.io/en/);
 
-### `npm test`
+****
+## *Como instalar e rodar ?* 🚀
+###  *Pré-requisitos:*
+1. Ter o **[Node js](https://nodejs.org/en/) instalado** e junto dele a **[NPM](https://www.npmjs.com/)**;
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Clonar o repositório** em sua máquina, usando comando abaixo em seu terminal:
 
-### `npm run build`
+```
+  git clone https://github.com/oliviaresende/register-drivers.git
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Agora basta **instalar as dependências** do seu projeto, digitando no terminal:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+  npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. E por ultimo dar o comando para **rodar** seu projeto:
 
-### `npm run eject`
+```
+  npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ > *Obs: O projeto irá abrir em seu navegador, rodando no http://localhost:3000*
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ ****
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ ### Como funciona Json-server ? 🚀
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Baseado em um único json que contém **events, lectures e profile**. Pode-se efetuar o GET,POST e PUT. Basta apenas escrever **http://localhost:3001/drivers**, como por exemplo.
 
-## Learn More
+> *Obs.: Ao rodar o projeto, ele irá criar uma API fake em **http://localhost:3001/** e o front **http://localhost:3000/***
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*Exemplo:*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Request | URL | Detalhes
+-- | -- | --
+GET | /drivers | Busca todos os motoristas
+GET | /drivers/1 | Busca um motorista
+POST | /drivers | Salvar um motorista
+PUT | /drivers/1 | Editar os dados do motorista
