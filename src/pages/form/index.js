@@ -112,7 +112,9 @@ const FormRegister = () => {
 
       {
         loading ? (
-          <Spin />
+          <div className="spinner">
+            <Spin size="large" />
+          </div>
         )
           :
           (
