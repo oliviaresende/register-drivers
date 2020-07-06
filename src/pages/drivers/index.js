@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Descriptions, List, Typography, Spin, Button, Select } from 'antd';
+import { List, Typography, Spin, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { date } from '../../utils/formatter';
+import CardDriver from '../../components/Card';
 
 import './drivers.scss';
 
 const { Title } = Typography;
-const { Option } = Select;
 
 const Drivers = () => {
   const [drivers, setDrivers] = useState({});
@@ -38,7 +37,6 @@ const Drivers = () => {
 
   return (
     <>
-      <Title>Motoristas</Title>
       {
         loading ? (
           <Spin />
@@ -46,33 +44,17 @@ const Drivers = () => {
           :
           (
             <>
-              <Button type="primary" htmlType="button"><Link to="/form">Cadastrar</Link></Button>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                <Title style={{ fontSize: '24px' }}>Motoristas</Title>
+                <Button type="primary" htmlType="button"><Link to="/form">Novo</Link></Button>
+              </div>
               <List
                 itemLayout="vertical"
                 dataSource={drivers}
                 split="false"
                 renderItem={item => (
-                  <List.Item
-                    key={item.key}
-                  >
-                    <Descriptions
-                      column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
-                      bordered
-                    >
-                      <Descriptions.Item label="Nome">{item.name}</Descriptions.Item>
-                      <Descriptions.Item label="Telefone">{item.telephone}</Descriptions.Item>
-                      <Descriptions.Item label="Data de Nascimento">{date(item.dateOfBirth)}</Descriptions.Item>
-                      <Descriptions.Item label="CNH">{item.cnh}</Descriptions.Item>
-                      <Descriptions.Item label="Tipo CNH">{item.typeCNH}</Descriptions.Item>
-                      <Descriptions.Item label="CPF">{item.cpf}</Descriptions.Item>
-                      <Descriptions.Item label="Situação">
-                        <Select defaultValue={item.active} onSelect={(value) => onSelect(value, item)}>
-                          <Option value="true">Ativo</Option>
-                          <Option value="false">Inativo</Option>
-                        </Select>
-                      </Descriptions.Item>
-                      <Descriptions.Item><Link to={`/form/${item.id}`}>Editar</Link></Descriptions.Item>
-                    </Descriptions>
+                  <List.Item key={item.key}>
+                    <CardDriver driver={item} onSelect={onSelect} />
                   </List.Item>
                 )}
               />
