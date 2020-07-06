@@ -2,3 +2,13 @@
   border-bottom: 1px solid #E5E5E5;
   margin-bottom: 10px;
 }
+
+.header-container-drivers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  .title-drivers {
+    font-size: 24px;
+  }
+}
