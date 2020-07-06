@@ -44,8 +44,8 @@ const Drivers = () => {
           :
           (
             <>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                <Title style={{ fontSize: '24px' }}>Motoristas</Title>
+              <div className="header-container-drivers">
+                <Title className="title-drivers">Motoristas</Title>
                 <Button type="primary" htmlType="button"><Link to="/form">Novo</Link></Button>
               </div>
               <List
