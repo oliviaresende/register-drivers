@@ -78,7 +78,8 @@ const FormRegister = () => {
           notification['success']({
             message: 'Sucesso!',
             description: 'Dados alterados com sucesso!',
-            duration: 3
+            duration: 3,
+            style: { width: '90%' }
           })
           setTimeout(() => {
             history.push("/");
@@ -87,7 +88,8 @@ const FormRegister = () => {
         .catch(() => notification['error']({
           message: 'Ops! Algo deu errado!',
           description: 'Não foi possível alterar os dados!',
-          duration: 3
+          duration: 3,
+          style: { width: '90%' }
         }))
 
     } else {
@@ -96,14 +98,16 @@ const FormRegister = () => {
           notification['success']({
             message: 'Sucesso!',
             description: 'Motorista cadastrado com sucesso!',
-            duration: 3
+            duration: 3,
+            style: { width: '90%' }
           })
           form.resetFields();
         })
         .catch(() => notification['error']({
           message: 'Ops! Algo deu errado!',
           description: 'Não foi possível cadastrar o motorista!',
-          duration: 3
+          duration: 3,
+          style: { width: '90%' }
         }))
     }
   }
