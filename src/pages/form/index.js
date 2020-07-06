@@ -115,7 +115,7 @@ const FormRegister = () => {
         )
           :
           (<Form
-            layout="horizontal"
+            layout="vertical"
             initialValues={id ? driver : initialValues}
             form={form}
             onFinish={onFinish}

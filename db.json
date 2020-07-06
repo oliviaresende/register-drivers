@@ -8,57 +8,37 @@
       "typeCNH": "A",
       "cpf": "079.730.816-40",
       "id": "99329",
-      "active": "false"
+      "active": false
     },
     {
       "id": "77584",
       "name": "Olívia Silva Resende",
-      "telephone": "(31) 99536-9159",
-      "dateOfBirth": "02/07/2020",
-      "cnh": "15456465",
+      "telephone": "(31)99536-9159",
+      "dateOfBirth": "2001-07-02",
+      "cnh": "70444266740",
       "typeCNH": "D",
       "cpf": "079.730.816-40",
-      "active": "false"
+      "active": false
     },
     {
       "id": "11347",
       "name": "Olívia Silva Resende",
-      "telephone": "(31) 99536-9159",
-      "dateOfBirth": "13/12/1989",
-      "cnh": "15456465",
+      "telephone": "(31)99536-9159",
+      "dateOfBirth": "2001-07-02",
+      "cnh": "70444266740",
       "typeCNH": "A",
       "cpf": "079.730.816-40",
-      "active": "true"
+      "active": true
     },
     {
-      "id": "79337",
+      "id": "22246",
       "name": "Olívia Silva Resende",
-      "telephone": "(31) 99536-9159",
-      "dateOfBirth": "02/07/2019",
-      "cnh": "15456465",
-      "typeCNH": "C",
+      "telephone": "(31)99999-9999",
+      "dateOfBirth": "2001-12-01",
+      "cnh": "70444266750",
+      "typeCNH": "E",
       "cpf": "079.730.816-40",
-      "active": "true"
-    },
-    {
-      "id": "78283",
-      "name": "Olívia Silva Resende",
-      "telephone": "(31) 99536-9159",
-      "dateOfBirth": "02/07/2019",
-      "cnh": "15456465",
-      "typeCNH": "D",
-      "cpf": "88888888888",
-      "active": "true"
-    },
-    {
-      "id": "56302",
-      "name": "Olívia Silva Resende",
-      "telephone": "(31)99536-9159",
-      "dateOfBirth": "2001-12-05",
-      "cnh": "70444266740",
-      "typeCNH": "D",
-      "cpf": "888.888.888-88",
-      "active": "true"
+      "active": true
     }
   ]
 }

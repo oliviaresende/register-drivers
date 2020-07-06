@@ -1,0 +1,25 @@
+.ant-card-bordered {
+  border: none;
+}
+.ant-card-body {
+  padding: 0;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 21px;
+  height: 21px;
+}
+.ant-switch-small {
+  min-width: 40px;
+}
+
+.edit-container {
+  display: inline-flex;
+
+  .edit-label {
+    margin-right: 4px;
+    display: none;
+    @media (min-width: 700px){
+      display: block;
+    } 
+  }
+}
