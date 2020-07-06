@@ -31,8 +31,8 @@ const CardDriver = ({ driver, onSelect }) => {
   ]
   return (
     <Card>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <p style={{ fontWeight: 'bold', fontSize: '16px' }} >{driver.name}</p>
+      <div className="header-container">
+        <p className="title" >{driver.name}</p>
         <Link to={`/form/${driver.id}`} className="edit-container">
           <div className="edit-label">Editar</div>
           <FontAwesomeIcon icon={faEdit} />
@@ -52,8 +52,7 @@ const CardDriver = ({ driver, onSelect }) => {
           ))
         }
       </Row>
-
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+      <div className="switch-container" >
         <Switch
           size="small"
           defaultChecked={driver.active}
