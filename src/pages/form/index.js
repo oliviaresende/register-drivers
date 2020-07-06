@@ -127,7 +127,6 @@ const FormRegister = () => {
                 <Link to="/"><FontAwesomeIcon icon={faArrowLeft} /></Link>
                 <Title className="title">{id ? "Editar Motorista" : "Novo Motorista"}</Title>
               </div>
-
               <Form
                 layout="vertical"
                 initialValues={id ? driver : initialValues}
@@ -136,8 +135,7 @@ const FormRegister = () => {
                 scrollToFirstError
               >
                 <Row>
-                  <Col xs={{ span: 24 }}
-                    sm={{ span: 11 }}>
+                  <Col xs={{ span: 24 }} sm={{ span: 11 }}>
                     <Form.Item
                       label="Nome"
                       name="name"
@@ -146,13 +144,11 @@ const FormRegister = () => {
                       <Input placeholder="Insira o nome completo do motorista." />
                     </Form.Item>
                   </Col>
-                  <Col xs={{ span: 24 }}
-                    sm={{ span: 11, push: 2 }}>
+                  <Col xs={{ span: 24 }} sm={{ span: 11, push: 2 }}>
                     <Form.Item
                       label="Telefone"
                       name="telephone"
                       rules={[{ required: true, min: 14, max: 14, message: "Por favor, insira os números do telefone!" }]}
-
                     >
                       <Input
                         type="tel"
@@ -163,8 +159,7 @@ const FormRegister = () => {
                       />
                     </Form.Item>
                   </Col>
-                  <Col xs={{ span: 14 }}
-                    sm={{ span: 11 }}>
+                  <Col xs={{ span: 14 }} sm={{ span: 11 }}>
                     <Form.Item
                       label="Data de Nascimento"
                       name="dateOfBirth"
@@ -185,8 +180,7 @@ const FormRegister = () => {
                       <Input type="date" />
                     </Form.Item>
                   </Col>
-                  <Col xs={{ span: 24 }}
-                    sm={{ span: 11, push: 2 }}>
+                  <Col xs={{ span: 24 }} sm={{ span: 11, push: 2 }}>
                     <Form.Item
                       label="CNH"
                       name="cnh"
@@ -195,8 +189,7 @@ const FormRegister = () => {
                       <Input maxLength="11" minLength="11" placeholder="Insira a CNH do motorista." />
                     </Form.Item>
                   </Col>
-                  <Col xs={{ span: 24 }}
-                    sm={{ span: 11 }}>
+                  <Col xs={{ span: 24 }} sm={{ span: 11 }}>
                     <Form.Item
                       label="Categoria CNH"
                       name="typeCNH"
@@ -209,8 +202,7 @@ const FormRegister = () => {
                       />
                     </Form.Item>
                   </Col>
-                  <Col xs={{ span: 24 }}
-                    sm={{ span: 11, push: 2 }}>
+                  <Col xs={{ span: 24 }} sm={{ span: 11, push: 2 }}>
                     <Form.Item
                       label="CPF"
                       name="cpf"

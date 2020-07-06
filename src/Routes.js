@@ -7,7 +7,11 @@ const Drivers = React.lazy(() => import('./pages/drivers'));
 const Form = React.lazy(() => import('./pages/form'));
 
 const Routes = props => (
-  <Suspense fallback={<Spin size="large" />}>
+  <Suspense fallback={
+    <div className="spinner">
+      <Spin size="large" />
+    </div>
+  }>
     <Switch>
       <Route exact path="/" component={routerProps => <Drivers {...routerProps} />} />
       <Route exact path="/form" component={routerProps => <Form {...routerProps} />} />
