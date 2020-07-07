@@ -119,12 +119,12 @@ const FormRegister = () => {
                       name="name"
                       rules={[{ required: true, disabled: true, message: "Por favor, insira o nome completo do motorista!" }]}
                     >
-                      <Input data-testid="form-field-name" placeholder="Insira o nome completo do motorista." />
+                      <Input placeholder="Insira o nome completo do motorista." />
                     </Form.Item>
                   </Col>
                   <Col xs={{ span: 24 }} sm={{ span: 11, push: 2 }}>
                     <Form.Item
-                      label="Telefone"
+                      label="Telefone Celular"
                       name="telephone"
                       rules={[{ required: true, min: 14, max: 14, message: "Por favor, insira os números do telefone!" }]}
                     >

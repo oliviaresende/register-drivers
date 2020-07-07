@@ -59,6 +59,7 @@ const Drivers = () => {
                 itemLayout="vertical"
                 dataSource={drivers}
                 split="false"
+                pagination={{ pageSize: 5, size: "small" }}
                 renderItem={item => (
                   <List.Item key={item.key}>
                     <CardDriver driver={item} onSelect={onSelect} />

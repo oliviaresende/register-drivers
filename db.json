@@ -1,43 +1,63 @@
 {
   "drivers": [
     {
-      "name": "Olívia Silva Resende",
-      "telephone": "(31)99536-9152",
-      "dateOfBirth": "2001-07-02",
-      "cnh": "70444266740",
-      "typeCNH": "A",
-      "cpf": "079.730.816-40",
-      "id": "99329",
-      "active": false
-    },
-    {
-      "id": "77584",
-      "name": "Olívia Silva Resende",
-      "telephone": "(31)99536-9159",
-      "dateOfBirth": "2001-07-02",
+      "id": "41344",
+      "name": "Luiza Fernandes Ribeiro",
+      "telephone": "(51)99494-3886",
+      "dateOfBirth": "1977-03-13",
       "cnh": "70444266740",
       "typeCNH": "D",
-      "cpf": "079.730.816-40",
-      "active": false
-    },
-    {
-      "id": "11347",
-      "name": "Olívia Silva Resende",
-      "telephone": "(31)99536-9159",
-      "dateOfBirth": "2001-07-02",
-      "cnh": "70444266740",
-      "typeCNH": "A",
-      "cpf": "079.730.816-40",
+      "cpf": "514.190.969-74",
       "active": true
     },
     {
-      "id": "22246",
-      "name": "Olívia Silva Resende",
-      "telephone": "(31)99999-9999",
-      "dateOfBirth": "2001-12-01",
-      "cnh": "70444266750",
+      "id": "45072",
+      "name": "Davi Pereira Carvalho",
+      "telephone": "(71)93623-3054",
+      "dateOfBirth": "1961-09-14",
+      "cnh": "29840075587",
       "typeCNH": "E",
-      "cpf": "079.730.816-40",
+      "cpf": "314.002.511-41",
+      "active": false
+    },
+    {
+      "id": "42871",
+      "name": "Isabella Alves Sousa",
+      "telephone": "(84)99369-4373",
+      "dateOfBirth": "1982-02-20",
+      "cnh": "54533965998",
+      "typeCNH": "AB",
+      "cpf": "875.840.366-35",
+      "active": true
+    },
+    {
+      "id": "32117",
+      "name": "Ryan Santos Ferreira",
+      "telephone": "(61)97342-6630",
+      "dateOfBirth": "1993-10-09",
+      "cnh": "30486015250",
+      "typeCNH": "C",
+      "cpf": "477.590.387-04",
+      "active": true
+    },
+    {
+      "id": "29041",
+      "name": "Enzo Almeida Araujo",
+      "telephone": "(81)96897-7314",
+      "dateOfBirth": "2001-02-23",
+      "cnh": "87001382636",
+      "typeCNH": "A",
+      "cpf": "755.662.228-20",
+      "active": true
+    },
+    {
+      "id": "81891",
+      "name": "Daniel Ribeiro Lima",
+      "telephone": "(21)95523-8234",
+      "dateOfBirth": "1971-12-18",
+      "cnh": "29613814759",
+      "typeCNH": "B",
+      "cpf": "705.326.527-70",
       "active": true
     }
   ]
