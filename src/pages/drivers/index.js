@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { List, Typography, Spin, Button, notification } from 'antd';
+import { List, Typography, Spin, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 import CardDriver from '../../components/Card';
+
+import { Alert } from '../../utils/notification';
 
 import './drivers.scss';
 
@@ -33,32 +35,19 @@ const Drivers = () => {
         "active": value
       })
     })
-      .then(() =>
-        notification['success']({
-          message: 'Sucesso!',
-          description: `Motorista ${driver.name} ${value ? "ativado" : "inativado"} com sucesso!`,
-          duration: 3,
-          style: { width: '90%' }
-        })
-      )
-      .catch(() =>
-        notification['error']({
-          message: 'Ops! Algo deu errado!',
-          description: `Não foi possível ${value ? "ativar" : "inativar"} ${driver.name}!`,
-          duration: 3,
-          style: { width: '90%' }
-        })
-      )
+      .then(() => Alert('success', 'Sucesso!', `Motorista ${driver.name} ${value ? "ativado" : "desativado"} com sucesso!`))
+      .catch(() => Alert('error', 'Ops! Algo deu errado!', `Não foi possível ${value ? "ativar" : "desativar"} ${driver.name}!`))
   }
 
   return (
     <>
       {
-        loading ? (
-          <div className="spinner">]
-            <Spin size="large" />
-          </div>
-        )
+        loading ?
+          (
+            <div className="spinner">
+              <Spin size="large" />
+            </div>
+          )
           :
           (
             <>
