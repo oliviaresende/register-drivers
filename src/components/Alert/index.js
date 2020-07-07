@@ -1,6 +1,6 @@
 import { notification } from 'antd';
 
-export const Alert = (type, message, description) => {
+const Alert = (type, message, description) => {
   notification[type]({
     message,
     description,
@@ -8,3 +8,5 @@ export const Alert = (type, message, description) => {
     style: { width: '90%' }
   })
 }
+
+export default Alert;
