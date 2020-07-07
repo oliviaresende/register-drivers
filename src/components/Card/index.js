@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, Switch, Row, Col } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { date } from '../../utils/formatter';
+import { dateFormatter } from '../../utils/formatter';
 import './card.scss';
 
 const CardDriver = ({ driver, onSelect }) => {
@@ -14,7 +14,7 @@ const CardDriver = ({ driver, onSelect }) => {
     },
     {
       title: 'Nasc.',
-      value: `${date(driver.dateOfBirth)}`,
+      value: `${dateFormatter(driver.dateOfBirth)}`,
     },
     {
       title: 'CNH',
@@ -52,7 +52,7 @@ const CardDriver = ({ driver, onSelect }) => {
           ))
         }
       </Row>
-      <div className="switch-container" >
+      <div className="switch-container">
         <Switch
           size="small"
           defaultChecked={driver.active}

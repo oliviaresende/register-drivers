@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom';
 
 import CardDriver from '../../components/Card';
 
-import { Alert } from '../../utils/notification';
+import Alert from '../../components/Alert';
 
 import './drivers.scss';
 
 const { Title } = Typography;
+
+const URL = process.env.REACT_APP_URL;
 
 const Drivers = () => {
   const [drivers, setDrivers] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/drivers')
+    fetch(URL)
       .then(res => res.json())
       .then(res => setDrivers(res))
       .catch(err => console.error(err, 'Nenhum motorista encontrado'))
@@ -23,7 +25,7 @@ const Drivers = () => {
   }, [])
 
   const onSelect = (value, driver) => {
-    fetch(`http://localhost:3001/drivers/${driver.id}`, {
+    fetch(`${URL}/${driver.id}`, {
       method: 'put',
       headers: {
         Accept: "application/json",
@@ -61,7 +63,7 @@ const Drivers = () => {
                 split="false"
                 pagination={{ pageSize: 5, size: "small" }}
                 renderItem={item => (
-                  <List.Item key={item.key}>
+                  <List.Item className="list" key={item.key}>
                     <CardDriver driver={item} onSelect={onSelect} />
                   </List.Item>
                 )}

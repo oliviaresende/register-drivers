@@ -1,4 +1,4 @@
-export const age = date => {
+export const generateAge = date => {
   const now = new Date(Date.now())
 
   const birth = new Date(date)

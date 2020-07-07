@@ -6,12 +6,44 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { cpfMask, telMask } from '../../utils/formatter';
-import { age } from '../../utils/generateAge';
-import { Alert } from '../../utils/notification';
+import { generateAge } from '../../utils/generateAge';
+import Alert from '../../components/Alert';
 
 import './form.scss';
 
 const { Title } = Typography;
+
+const URL = process.env.REACT_APP_URL;
+
+const post = values => (
+  fetch(URL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify(
+      {
+        "id": String(Math.ceil(Math.random() * Math.pow(10, 5))),
+        ...values,
+        "active": true,
+      }
+    )
+  })
+)
+
+const put = (values, id) => (
+  fetch(`${URL}/${id}`, {
+    method: 'put',
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify(values)
+  })
+)
 
 const FormRegister = () => {
   const [form] = Form.useForm();
@@ -31,7 +63,7 @@ const FormRegister = () => {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:3001/drivers/${id}`)
+      fetch(`${URL}/${id}`)
         .then(res => res.json())
         .then(res => setDriver(res))
         .catch(err => console.error(err, 'Nenhum motorista encontrado'))
@@ -40,39 +72,9 @@ const FormRegister = () => {
     else setLoading(false)
   }, [id])
 
-  const post = values => (
-    fetch('http://localhost:3001/drivers', {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify(
-        {
-          "id": String(Math.ceil(Math.random() * Math.pow(10, 5))),
-          ...values,
-          "active": true,
-        }
-      )
-    })
-  )
-
-  const put = values => (
-    fetch(`http://localhost:3001/drivers/${id}`, {
-      method: 'put',
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify(values)
-    })
-  )
-
   const onFinish = values => {
     if (id) {
-      put(values)
+      put(values, id)
         .then(() => {
           Alert('success', 'Sucesso!', 'Dados alterados com sucesso!');
           setTimeout(() => {
@@ -147,7 +149,7 @@ const FormRegister = () => {
                       },
                       ({ getFieldValue }) => ({
                         validator(_, value) {
-                          if (!value || age(getFieldValue("dateOfBirth")) >= 18) {
+                          if (!value || generateAge(getFieldValue("dateOfBirth")) >= 18) {
                             return Promise.resolve();
                           }
                           return Promise.reject("Menor de 18 anos não pode dirigir!");
@@ -177,6 +179,7 @@ const FormRegister = () => {
                         minLength="1"
                         maxLength="2"
                         placeholder="Insira a categoria da CNH"
+                        onChange={(e) => form.setFieldsValue({ typeCNH: e.target.value.toLocaleUpperCase() })}
                       />
                     </Form.Item>
                   </Col>
