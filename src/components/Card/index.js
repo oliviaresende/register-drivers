@@ -25,7 +25,7 @@ const CardDriver = ({ driver, onSelect }) => {
       value: `${driver.typeCNH}`,
     },
     {
-      title: 'Fone',
+      title: 'Cel.',
       value: `${driver.telephone}`,
     },
   ]
