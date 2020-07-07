@@ -18,7 +18,6 @@ Plataforma para cadastrar motoristas de todo o Brasil.
 - [Sass](https://sass-lang.com/documentation);
 - [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react);
 - [Json Server](https://github.com/typicode/json-server);
-- [Jest](https://jestjs.io/en/);
 
 ****
 ## *Como instalar e rodar ?* 🚀
@@ -31,13 +30,19 @@ Plataforma para cadastrar motoristas de todo o Brasil.
   git clone https://github.com/oliviaresende/register-drivers.git
 ```
 
-3. Agora basta **instalar as dependências** do seu projeto, digitando no terminal:
+3. **Acessar o repositório**:
+
+```
+  cd register-drivers
+```
+
+4. Agora basta **instalar as dependências** do seu projeto, digitando no terminal:
 
 ```
   npm install
 ```
 
-4. E por ultimo dar o comando para **rodar** seu projeto:
+5. E por ultimo dar o comando para **rodar** seu projeto:
 
 ```
   npm start
