@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Typography, Button, Spin, notification, Row, Col } from 'antd';
+import { Form, Input, Typography, Button, Spin, Row, Col } from 'antd';
 import { useParams, useHistory, Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { cpfMask, telMask } from '../../utils/formatter';
 import { age } from '../../utils/generateAge';
+import { Alert } from '../../utils/notification';
 
 import './form.scss';
 
@@ -36,9 +37,7 @@ const FormRegister = () => {
         .catch(err => console.error(err, 'Nenhum motorista encontrado'))
         .finally(() => setLoading(false))
     }
-    else {
-      setLoading(false)
-    }
+    else setLoading(false)
   }, [id])
 
   const post = values => (
@@ -75,45 +74,24 @@ const FormRegister = () => {
     if (id) {
       put(values)
         .then(() => {
-          notification['success']({
-            message: 'Sucesso!',
-            description: 'Dados alterados com sucesso!',
-            duration: 3,
-            style: { width: '90%' }
-          })
+          Alert('success', 'Sucesso!', 'Dados alterados com sucesso!');
           setTimeout(() => {
             history.push("/");
           }, 3000)
         })
-        .catch(() => notification['error']({
-          message: 'Ops! Algo deu errado!',
-          description: 'Não foi possível alterar os dados!',
-          duration: 3,
-          style: { width: '90%' }
-        }))
-
+        .catch(() => Alert('error', 'Ops! Algo deu errado!', 'Não foi possível alterar os dados!'));
     } else {
       post(values)
         .then(() => {
-          notification['success']({
-            message: 'Sucesso!',
-            description: 'Motorista cadastrado com sucesso!',
-            duration: 3,
-            style: { width: '90%' }
-          })
+          Alert('success', 'Sucesso!', 'Motorista cadastrado com sucesso!');
           form.resetFields();
         })
-        .catch(() => notification['error']({
-          message: 'Ops! Algo deu errado!',
-          description: 'Não foi possível cadastrar o motorista!',
-          duration: 3,
-          style: { width: '90%' }
-        }))
+        .catch(() => Alert('error', 'Ops! Algo deu errado!', 'Não foi possível cadastrar motorista!'));
     }
   }
+
   return (
     <>
-
       {
         loading ? (
           <div className="spinner">
@@ -141,7 +119,7 @@ const FormRegister = () => {
                       name="name"
                       rules={[{ required: true, disabled: true, message: "Por favor, insira o nome completo do motorista!" }]}
                     >
-                      <Input placeholder="Insira o nome completo do motorista." />
+                      <Input data-testid="form-field-name" placeholder="Insira o nome completo do motorista." />
                     </Form.Item>
                   </Col>
                   <Col xs={{ span: 24 }} sm={{ span: 11, push: 2 }}>
@@ -159,7 +137,7 @@ const FormRegister = () => {
                       />
                     </Form.Item>
                   </Col>
-                  <Col xs={{ span: 14 }} sm={{ span: 11 }}>
+                  <Col xs={{ span: 24 }} sm={{ span: 11 }}>
                     <Form.Item
                       label="Data de Nascimento"
                       name="dateOfBirth"
