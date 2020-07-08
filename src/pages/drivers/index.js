@@ -52,9 +52,9 @@ const Drivers = () => {
           )
           :
           (
-            <>
-              <div className="header-container-drivers">
-                <Title className="title-drivers">Motoristas</Title>
+            <div className="drivers-container">
+              <div className="header-container">
+                <Title className="title">Motoristas</Title>
                 <Button type="primary" htmlType="button"><Link to="/form">Novo</Link></Button>
               </div>
               <List
@@ -68,7 +68,7 @@ const Drivers = () => {
                   </List.Item>
                 )}
               />
-            </>
+            </div>
           )
       }
     </>
