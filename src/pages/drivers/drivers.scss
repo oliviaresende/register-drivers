@@ -1,13 +1,15 @@
-.list{
-  margin-bottom: 10px;
-}
+.drivers-container {
+  .list{
+    margin-bottom: 10px;
+  }
 
-.header-container-drivers {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 
-  .title-drivers {
-    font-size: 24px;
+    .title {
+      font-size: 24px;
+    }
   }
 }

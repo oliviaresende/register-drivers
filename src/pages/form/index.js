@@ -102,7 +102,7 @@ const FormRegister = () => {
         )
           :
           (
-            <>
+            <div className="form-container">
               <div className="header-container">
                 <Link to="/"><FontAwesomeIcon icon={faArrowLeft} /></Link>
                 <Title className="title">{id ? "Editar Motorista" : "Novo Motorista"}</Title>
@@ -212,7 +212,7 @@ const FormRegister = () => {
                   </Col>
                 </Row>
               </Form>
-            </>
+            </div>
           )
       }
     </>
