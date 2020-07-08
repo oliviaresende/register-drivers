@@ -123,7 +123,19 @@ const FormRegister = () => {
                     <Form.Item
                       label="Nome"
                       name="name"
-                      rules={[{ required: true, disabled: true, message: "Por favor, insira o nome completo do motorista!" }]}
+                      rules={[{
+                        required: true,
+                        message: "Por favor, insira o nome completo do motorista!"
+                      },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue("name").trim().split(' ').length >= 2) {
+                            return Promise.resolve();
+                          }
+                          return Promise.reject("Por favor, insira o nome completo do motorista!");
+                        }
+                      })
+                      ]}
                     >
                       <Input placeholder="Insira o nome completo do motorista." />
                     </Form.Item>
@@ -132,7 +144,13 @@ const FormRegister = () => {
                     <Form.Item
                       label="Telefone Celular"
                       name="telephone"
-                      rules={[{ required: true, min: 14, max: 14, message: "Por favor, insira os números do telefone!" }]}
+                      rules={[{
+                        required: true,
+                        pattern: '([0-9]{1,2})[0-9]{1,5}-[0-9]{1,4}',
+                        min: 14,
+                        max: 14,
+                        message: "Por favor, insira os números do telefone!"
+                      }]}
                     >
                       <Input
                         type="tel"
@@ -168,7 +186,13 @@ const FormRegister = () => {
                     <Form.Item
                       label="CNH"
                       name="cnh"
-                      rules={[{ required: true, min: 11, max: 11, message: "Por favor, insira o número completo da CNH!" }]}
+                      rules={[{
+                        required: true,
+                        pattern: '[0-9]{1,11}',
+                        min: 11,
+                        max: 11,
+                        message: "Por favor, insira o número completo da CNH!"
+                      }]}
                     >
                       <Input maxLength="11" minLength="11" placeholder="Insira a CNH do motorista." />
                     </Form.Item>
@@ -177,7 +201,13 @@ const FormRegister = () => {
                     <Form.Item
                       label="Categoria CNH"
                       name="typeCNH"
-                      rules={[{ required: true, min: 1, max: 2, message: "Por favor, indira a categoria da CNH!" }]}
+                      rules={[{
+                        required: true,
+                        pattern: '[A-Za-z]{1,2}',
+                        min: 1,
+                        max: 2,
+                        message: "Por favor, indira a categoria da CNH!"
+                      }]}
                     >
                       <Input
                         minLength="1"
@@ -191,7 +221,13 @@ const FormRegister = () => {
                     <Form.Item
                       label="CPF"
                       name="cpf"
-                      rules={[{ required: true, min: 14, max: 14, message: "Por favor, insira os números do CPF!" }]}
+                      rules={[{
+                        required: true,
+                        pattern: '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}-[0-9]{1,2}',
+                        min: 14,
+                        max: 14,
+                        message: "Por favor, insira os números do CPF!"
+                      }]}
                     >
                       <Input
                         maxLength="14"
