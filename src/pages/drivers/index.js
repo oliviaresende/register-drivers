@@ -17,7 +17,7 @@ const Drivers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(URL)
+    fetch(`${URL}/drivers`)
       .then(res => res.json())
       .then(res => setDrivers(res))
       .catch(err => console.error(err, 'Nenhum motorista encontrado'))
@@ -25,7 +25,7 @@ const Drivers = () => {
   }, [])
 
   const onSelect = (value, driver) => {
-    fetch(`${URL}/${driver.id}`, {
+    fetch(`${URL}/drivers/${driver.id}`, {
       method: 'put',
       headers: {
         Accept: "application/json",

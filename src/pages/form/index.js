@@ -16,7 +16,7 @@ const { Title } = Typography;
 const URL = process.env.REACT_APP_URL;
 
 const post = values => (
-  fetch(URL, {
+  fetch(`${URL}/drivers`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -33,8 +33,9 @@ const post = values => (
   })
 )
 
-const put = (values, id) => (
-  fetch(`${URL}/${id}`, {
+const put = (values, id) => {
+  console.log(values)
+  fetch(`${URL}/drivers/${id}`, {
     method: 'put',
     headers: {
       Accept: "application/json",
@@ -43,7 +44,7 @@ const put = (values, id) => (
     },
     body: JSON.stringify(values)
   })
-)
+}
 
 const FormRegister = () => {
   const [form] = Form.useForm();
@@ -63,7 +64,7 @@ const FormRegister = () => {
 
   useEffect(() => {
     if (id) {
-      fetch(`${URL}/${id}`)
+      fetch(`${URL}/drivers/${id}`)
         .then(res => res.json())
         .then(res => setDriver(res))
         .catch(err => console.error(err, 'Nenhum motorista encontrado'))
