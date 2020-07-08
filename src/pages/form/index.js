@@ -33,8 +33,7 @@ const post = values => (
   })
 )
 
-const put = (values, id) => {
-  console.log(values)
+const put = (values, id, active) => (
   fetch(`${URL}/drivers/${id}`, {
     method: 'put',
     headers: {
@@ -42,9 +41,13 @@ const put = (values, id) => {
       "Content-Type": "application/json",
       'Access-Control-Allow-Origin': '*'
     },
-    body: JSON.stringify(values)
+    body: JSON.stringify({
+      id,
+      ...values,
+      active
+    })
   })
-}
+)
 
 const FormRegister = () => {
   const [form] = Form.useForm();
@@ -59,7 +62,7 @@ const FormRegister = () => {
     "dateOfBirth": "",
     "cnh": "",
     "typeCNH": "",
-    "cpf": "",
+    "cpf": ""
   };
 
   useEffect(() => {
@@ -75,7 +78,7 @@ const FormRegister = () => {
 
   const onFinish = values => {
     if (id) {
-      put(values, id)
+      put(values, id, driver.active)
         .then(() => {
           Alert('success', 'Sucesso!', 'Dados alterados com sucesso!');
           setTimeout(() => {
